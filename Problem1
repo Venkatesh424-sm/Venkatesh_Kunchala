@@ -1,0 +1,35 @@
+Calculator
+
+const r = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+r.question("a: ", function(x) {
+    r.question("b: ", function(y) {
+        r.question("o (+ - * /): ", function(o) {
+
+            x = parseFloat(x);
+            y = parseFloat(y);
+
+            if (o === "+") {
+                console.log(x + y);
+            } 
+            else if (o === "-") {
+                console.log(x - y);
+            } 
+            else if (o === "*") {
+                console.log(x * y);
+            } 
+            else if (o === "/") {
+                if (y === 0) console.log("err");
+                else console.log(x / y);
+            } 
+            else {
+                console.log("bad input");
+            }
+
+            r.close();
+        });
+    });
+});
