@@ -1,0 +1,27 @@
+// Count multiples of numbers 1 to 9
+
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter numbers separated by space: ", function(line) {
+    let numbers = line.split(" ").map(Number);
+
+    let result = {
+        1: 0, 2: 0, 3: 0, 4: 0, 5: 0,
+        6: 0, 7: 0, 8: 0, 9: 0
+    };
+
+    for (let value of numbers) {
+        for (let d = 1; d <= 9; d++) {
+            if (value % d === 0) {
+                result[d]++;
+            }
+        }
+    }
+
+    console.log(result);
+    rl.close();
+});
