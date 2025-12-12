@@ -1,35 +1,39 @@
-Calculator
+// Calculator
 
-const r = require("readline").createInterface({
+const readline = require("readline");
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-r.question("a: ", function(x) {
-    r.question("b: ", function(y) {
-        r.question("o (+ - * /): ", function(o) {
+rl.question("Enter first number (a): ", function(a) {
+    rl.question("Enter second number (b): ", function(b) {
+        rl.question("Enter operation (add, sub, mul, div): ", function(op) {
 
-            x = parseFloat(x);
-            y = parseFloat(y);
+            a = parseFloat(a);
+            b = parseFloat(b);
 
-            if (o === "+") {
-                console.log(x + y);
+            if (op === "add") {
+                console.log("Result =", a + b);
             } 
-            else if (o === "-") {
-                console.log(x - y);
+            else if (op === "sub") {
+                console.log("Result =", a - b);
             } 
-            else if (o === "*") {
-                console.log(x * y);
+            else if (op === "mul") {
+                console.log("Result =", a * b);
             } 
-            else if (o === "/") {
-                if (y === 0) console.log("err");
-                else console.log(x / y);
+            else if (op === "div") {
+                if (b === 0) {
+                    console.log("Cannot divide by zero");
+                } else {
+                    console.log("Result =", a / b);
+                }
             } 
             else {
-                console.log("bad input");
+                console.log("Invalid operation");
             }
 
-            r.close();
+            rl.close();
         });
     });
 });
