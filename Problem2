@@ -1,0 +1,19 @@
+// odd numbers
+
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Enter number a: ", function(a) {
+    a = parseInt(a);
+
+    let odd = 1;
+    for (let i = 0; i < a; i++) {
+        console.log(odd);
+        odd += 2;
+    }
+
+    rl.close();
+});
